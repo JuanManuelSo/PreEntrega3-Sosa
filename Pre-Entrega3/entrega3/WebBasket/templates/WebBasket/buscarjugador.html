@@ -1,0 +1,26 @@
+
+{% extends "WebBasket/padre.html" %}
+
+
+{% load static %}
+
+
+{% block titulo %}
+
+<h1> Aca buscamos jugadores por equipo:</h1>
+    <form action="/resultadoEquipo/" method = "GET">
+        Ingresa el nombre del equipo: <input type = "text" name = "team">
+        <input type= "submit" value = "Buscar">
+    </form>
+
+    {% if jugadores %}
+
+        {% for x in jugadores %}
+
+        <p> {{x.nombre}} </p>
+
+        {% endfor %}
+    {% endif %}
+
+
+{% endblock %}

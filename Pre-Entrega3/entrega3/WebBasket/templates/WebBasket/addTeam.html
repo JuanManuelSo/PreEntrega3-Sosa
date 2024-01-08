@@ -1,0 +1,20 @@
+
+{% extends "WebBasket/padre.html" %}
+
+
+{% load static %}
+
+
+{% block titulo %}
+
+<h1> Aca creamos un nuevo Equipo</h1>
+
+    <form action="/nuevoEquipo/" method="POST">{% csrf_token %}
+        
+        {{miEquipo.as_p}}
+
+        <input type = "submit" value = "Guardar">
+
+    </form>
+
+{% endblock %}
