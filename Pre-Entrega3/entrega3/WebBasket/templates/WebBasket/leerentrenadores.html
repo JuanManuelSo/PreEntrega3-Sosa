@@ -1,0 +1,44 @@
+{% extends "WebBasket/principales/padre.html" %}
+
+
+{% load static %}
+
+
+{% block titulo %}
+Aqui puedes ver todos los Entrenadores
+{% endblock %}
+
+{% block descripcion %}
+<div class="players-container">
+{% for entrenador in coachs %}
+<div class="player-card height-mod">
+    <div class="player-img-container">
+        <img src={{entrenador.imagen.url}} alt="{{entrenador.nombre}}" class="player-img">
+    </div>
+        <div class="data-container">
+            <h3 class="player-name"> {{entrenador.nombre}} </p>
+                <p class="player-data team"> {{entrenador.equipo}} </p>
+                <p class="player-data pos"> {{entrenador.edad}}y/o </p>
+                <div class="states-container">
+                    <div class="state {% if entrenador.activo %} state-green {% else %} state-red {% endif %}">
+                        {% if entrenador.activo %} Activo {% else %} Retirado {% endif %}
+                    </div>
+                </div>
+                <div class="player-btn-container">
+                    <a href="{% url 'EliminarEntrenador' entrenador.nombre %}" class="custom-btn player-btn close">
+                        <i class="fa-solid fa-trash"></i>
+                    </a>
+                    <a href="{% url 'EditarEntrenador' entrenador.nombre %}" class="custom-btn player-btn edit"> 
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </a>
+                </div>
+        </div>
+</div>
+    {% endfor %}
+</div>
+    <br>
+    <div class="create-btn-container">
+        <a href="{% url 'Entrenadores' %}" class="custom-btn"> Crear Nuevo Entrenador </a>
+    </div>
+    
+    {% endblock %}

@@ -9,4 +9,5 @@ class PostAdmin(admin.ModelAdmin):
 admin.site.register(jugador)
 admin.site.register(entrenador)
 admin.site.register(equipo)
+admin.site.register(Avatar)
 

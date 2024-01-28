@@ -1,0 +1,71 @@
+{% extends "WebBasket/principales/padre.html" %}
+
+
+{% load static %}
+
+
+{% block titulo %}
+
+{{mensaje}}
+
+{% endblock %}
+
+{% block descripcion %}
+        <section class="features-icons bg-light text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                            <div class="features-icons-icon d-flex"><i class="bi-window m-auto text-primary"></i></div>
+                            <h3>¿Por que?</h3>
+                            <p class="lead mb-0">Para agrandar la comunidad del basket!</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                            <div class="features-icons-icon d-flex"><i class="bi-layers m-auto text-primary"></i></div>
+                            <h3>Nosotros</h3>
+                            <p class="lead mb-0">Esta pagina fue creada en Argentina para todo el mundo!</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+                            <div class="features-icons-icon d-flex"><i class="bi-terminal m-auto text-primary"></i></div>
+                            <h3>Facil de usar</h3>
+                            <p class="lead mb-0">Esta pagina tiene un diseño sencillo, para que cualquier persona la pueda usar!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+{% endblock %}
+{% block data %}
+        <section class="showcase">
+            <div class="container-fluid p-0">
+                <div class="row g-0">
+                    <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-1.jpg')"></div>
+                    <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                        <h2>Acerca de la pagina</h2>
+                        <p class="lead mb-0">Esta pagina fue creada preferiblemente para Basquetbolistas y personas fanaticas de este mundo, pero cualquier persona puede interactuar con la pagina. Vas a encontrar diferente
+                            apartados donde puedes agregar Jugadores que te gusten y quieres dar a conocer, Equipos de los que eres fanatico, o Entrenadores que te gusten! Y te vas a encontrar con un apartado donde puedes buscar los jugadores que desees por su equipo.
+                        </p>
+                    </div>
+                </div>
+                <div class="row g-0">
+                    <div class="col-lg-6 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-2.jpg')"></div>
+                    <div class="col-lg-6 my-auto showcase-text">
+                        <h2>Novedades proximamente...</h2>
+                        <p class="lead mb-0">Esto es solo el principio de la web, proximamente estaremos mejorandola para que ustedes pueda tener una mejor experiencia, gracias por ser parte de esto! </p>
+                    </div>
+                </div>
+                <div class="row g-0">
+                    <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('assets/img/bg-showcase-3.jpg')"></div>
+                    <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                        <h2>Desarrollo</h2>
+                        <p class="lead mb-0">Las tecnologias utilizadas para el desarrollo de la web fueron con Python(DJANGO), plantillas HTML, y CSS!!
+                             Tambien se usaron diferentes imagenes para darle una estetica diferente.  </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+{% endblock %}

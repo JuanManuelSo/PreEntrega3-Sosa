@@ -1,0 +1,33 @@
+
+{% extends "WebBasket/principales/padre.html" %}
+
+
+{% load static %}
+
+
+{% block titulo %}
+
+<h1> Busca tus jugadores favoritos!</h1>
+    <form action="/resultadoEquipo/" method = "GET">
+        Nombre del Equipo: <input type = "text" name = "team">
+    <input type= "submit" value = "Buscar" class = "custom-btn save-btn new-custom">
+    </form>
+    {% if entrenadores %}
+        
+        {% for x in entrenadores %}
+
+        <p> El entrenador es: {{x.nombre}} </p>
+
+        {% endfor %}
+    {% endif %}
+    {% if jugadores %}
+        
+        {% for x in jugadores %}
+
+        <p> {{x.nombre}} </p>
+
+        {% endfor %}
+    {% endif %}
+
+
+{% endblock %}

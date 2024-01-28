@@ -1,0 +1,330 @@
+
+
+body{ 
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.fixed-header {
+    width: 100%;
+    z-index: 90;
+    left: 0;
+    top: 0;
+    position: fixed;
+}
+
+.custom-header-container {
+    margin:0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: none;
+}
+
+.account-container {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.account-container p {
+    margin: 0;
+    font-weight: 300;
+}
+
+.navbar-links {
+    display: flex;
+    gap: 4rem;
+    align-items: center;
+}
+
+.navbar-links a:hover {
+    font-size: 1.5rem;
+}
+
+.about-me__title{ 
+    margin: 0;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.decoration-line {
+    height: 4px;
+    width: 40%;
+    margin: 0 auto;
+    background-color: black;
+    border-radius: 2px;
+}
+
+footer{
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+
+.about-me__description{
+    padding: 0 400px;
+    text-align: center;
+}
+
+.btn-container{
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+}
+/* BOTON PRIMARIO */
+.custom-btn{
+    width: 250px;
+    background-color: #46628C;
+    display: inline-block;
+    padding: 1rem;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    font-family: 'Roboto',sans-serif;
+    font-weight: 700;
+}
+
+.custom-btn:hover{
+    background-color: #18273D;
+    color: #fff;
+}
+/* EDICION BOTON PRIMARIO EN CUENTAS */
+.acc-btn-width{
+    width: max-content;
+
+}
+
+/* FORMULARIO */
+.custom-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-insta{
+    display: flex;
+    width: 300px;
+    justify-content: space-between;
+
+}
+
+.form-insta label{
+    color: #fff;
+    font-family: 'Roboto',sans-serif;
+    font-weight: 500;
+
+}
+
+.form-god{
+    border: none;
+    width: 200px;
+}
+/* EDICION BOTON PRIMARIO EN FORMULARIO */
+.save-btn{
+    width: 155px;
+    background-color: #186FF2;
+}
+
+.new-custom{
+    width: 120px;
+    padding: 2px 0 ;
+}
+/* PLAYERS CARDS CONTAINERS */
+
+.main-container{
+    display: flex;
+    justify-content: center;
+    /* Ajusta el ancho máximo del contenedor padre según tus necesidades */
+    /* max-width: 1200px;
+    margin: 0 auto; Centra el contenedor en el eje horizontal */
+}
+
+
+.players-container{
+    display: flex;
+    gap: 2rem;
+    background-color: white;
+    padding: 2rem 2rem;
+    flex-wrap: wrap;
+    justify-content: start;
+}
+
+
+
+/* PLAYER CARD */
+.player-card{
+    height: 460px;
+    width: 240px;
+    background-color: white;
+    border-radius: 12px;
+    font-family: "Roboto",sans-serif;
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.16);
+}
+
+.player-img-container{
+    width: 100%;
+    height: 240px;
+    border-radius: 12px;
+    overflow: hidden;
+
+}
+
+.player-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+.data-container{
+    padding: 0.5rem;
+
+}
+
+.player-name{
+    margin: 0;
+    font-size: 1.4rem;
+
+}
+.team {
+    font-weight: 600;
+}
+.pos{
+    color: #00000099;
+}
+.age-height{
+    display: flex;
+    flex-direction: column;
+}
+.misc{
+    font-size: 0.7rem;
+    color: #00000099;
+}
+.player-data{
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.states-container{
+    display: flex;
+    gap: 0.5rem;
+
+}
+
+.state{
+    background-color: red;
+    padding: 0.2rem;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: white;
+}
+
+.state-green{
+    background-color: green;
+}
+.state-red{
+    background: red;
+}
+
+.bio-link {
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+.player-btn-container{
+    display: flex;
+    justify-content: end;
+    gap: 0.3rem;
+}
+.player-btn{
+    padding: 0.4rem;
+    border-radius: 6px;
+    width: fit-content;
+    cursor: pointer;
+}
+
+.edit{
+    background-color: #46628C;
+}
+.close{
+    background-color: red;
+}
+
+/* MOD ENTRENADORES Y EQUIPOS */
+.height-mod{
+    height: max-content;
+
+}
+
+/* CONTENEDOR DE BOTON DE CREACION */
+.create-btn-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0;
+}
+/* JUGADOR MODAL */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    height: 100vh;
+    width: 100vw;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.jugador-modal {
+    display: none;
+}
+
+.jugador-modal.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 700px;
+    height: 550px;
+    padding: 20px 20px;
+    color: #000;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.d-block {
+    display: block;
+}
+
+.modal-close-btn-container{
+    display: flex;
+    justify-content: end;
+}
+
+.close-modal-btn {
+    border: none;
+}
+
+.modal-main-content{
+    display: flex;
+    height: 100%;
+}
+
+.modal-player-img-container{
+    width: 300px;
+    height: 300px;
+}
+
+.bio{
+    height: 75%;
+    overflow-y: auto;
+
+}

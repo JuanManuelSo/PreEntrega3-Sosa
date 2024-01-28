@@ -1,0 +1,19 @@
+{% extends "WebBasket/principales/padre.html" %}
+
+
+{% load static %}
+
+
+{% block titulo %}
+
+<h1> Agrega un nuevo Avatar </h1>
+
+    <form action = "" method="POST" enctype="multipart/form-data">{% csrf_token %}
+
+        {{formulario.as_p}}
+        <button type = "submit"> Enviar </button>
+
+    </form>
+
+
+{% endblock %}

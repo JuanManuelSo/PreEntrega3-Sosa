@@ -1,0 +1,80 @@
+{% extends "WebBasket/principales/padre.html" %}
+
+
+{% load static %}
+
+
+{% block titulo %}
+Aqui puedes ver todos los Jugadores
+{% endblock %}
+
+{% block descripcion %}
+<div class="main-container">
+    <div class="players-container">
+        {% for jugador in players %}
+        <div class="player-card">
+            <div class="player-img-container">
+                <img src={{jugador.imagen.url}} alt="{{jugador.nombre}}" class = "player-img">
+            </div>
+            <div class = "data-container">
+                <h3 class = "player-name"> {{jugador.nombre}} </h3>
+                <p class = "player-data team"> {{jugador.equipo}} </p>
+                <p class = "player-data pos"> {{jugador.posicion}} </p>
+                <p class = "player-data age-height"> <span>{{jugador.edad}}<span class="misc"> y/o</span></span>  <span>{{jugador.altura}}<span class="misc"> mts</span></span> </p>
+                <div class="states-container">
+                    <div class = "state {% if jugador.lesionado %} state-red {% else %} state-green {% endif %}">{% if jugador.lesionado %} Lesionado {% else %} Sano {% endif %}</div>
+                    <div class = "state {% if jugador.activo %} state-green {% else %} state-red {% endif %}">{% if jugador.activo %} Activo {% else %} Retirado {% endif %}</div>
+                </div>
+                
+                <a href="" class="bio-link" id="jugador-{{jugador.id}}"> Leer Biografia </a>
+
+                <div class="player-btn-container">
+                    <a href="{% url 'EditarJugador' jugador.nombre %}" class="custom-btn player-btn edit">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </a>
+                    <a href="{% url 'EliminarJugador' jugador.nombre %}" class="custom-btn player-btn close">
+                        <i class="fa-solid fa-trash"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="overlay" id="overlay-{{jugador.id}}">
+            <div class="jugador-modal">
+                <div class="modal-close-btn-container">
+                    <button class="close-modal-btn custom-btn player-btn close"><i class="fa fa-times" aria-hidden="true"></i></button>
+                </div>
+                <div class="modal-main-content">
+                    <div class="column-1">
+                        <div class="modal-player-img-container">
+                            <img src="{{jugador.imagen.url}}" alt="{{jugador.nombre}}" class = "player-img">
+                        </div>
+                        <div class="modal-player-data-container">
+                            <h3 class = "player-name"> {{jugador.nombre}} </h3>
+                            <p class = "player-data team"> {{jugador.equipo}} </p>
+                            <p class = "player-data pos"> {{jugador.posicion}} </p>
+                            <p class = "player-data age-height"> <span>{{jugador.edad}}<span class="misc"> y/o</span></span>  <span>{{jugador.altura}}<span class="misc"> mts</span></span> </p>
+                            <div class="states-container">
+                                <div class = "state {% if jugador.lesionado %} state-red {% else %} state-green {% endif %}">{% if jugador.lesionado %} Lesionado {% else %} Sano {% endif %}</div>
+                                <div class = "state {% if jugador.activo %} state-green {% else %} state-red {% endif %}">{% if jugador.activo %} Activo {% else %} Retirado {% endif %}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column-2">
+                        <h3>Biografia:</h3> 
+                        <p class = "player-data bio">{{jugador.biografia}} </p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        {% endfor %}
+        </div>
+</div>
+<br>
+<div class="create-btn-container">
+    <a href="{% url 'Jugadores' %}" class="custom-btn"> Crear Nuevo Jugador </a>
+</div>
+
+{% endblock %}

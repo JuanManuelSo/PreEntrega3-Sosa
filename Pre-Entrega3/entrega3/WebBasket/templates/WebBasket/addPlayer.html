@@ -1,4 +1,4 @@
-{% extends "WebBasket/padre.html" %}
+{% extends "WebBasket/principales/padre.html" %}
 
 
 {% load static %}
@@ -6,15 +6,20 @@
 
 {% block titulo %}
 
-<h1> Aca agregamos un nuevo jugador</h1>
+<h1> Agrega un nuevo Jugador!</h1>
 
-    <form action="" method="POST">{% csrf_token %}
+    <form action="" method="POST" class = "custom-form" enctype="multipart/form-data">{% csrf_token %}
         
-        {{miJugador.as_p}}
+        {{miJugador.as_div}}
 
-        <input type = "submit" value = "Guardar">
+        <input type = "submit" value = "Guardar" class = "custom-btn save-btn">
 
     </form>
 
+{% endblock %}
 
+{% block descripcion %}
+<div class = "btn-container">
+    <a href="{% url 'LeerJugador' %}" class = "custom-btn"> Ver todos los Jugadores   </a>
+</div>
 {% endblock %}

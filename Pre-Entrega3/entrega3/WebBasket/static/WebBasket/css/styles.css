@@ -10846,6 +10846,11 @@ header.masthead {
   padding-top: 8rem;
   padding-bottom: 8rem;
 }
+
+.newBg {
+  background: url("../assets/img/bg-masthead.jpg");
+}
+
 header.masthead:before {
   content: "";
   position: absolute;

@@ -1,0 +1,15 @@
+{% extends "WebBasket/principales/padre.html" %}
+
+
+{% load static %}
+
+{% block titulo %}
+<h1> Edita al Entrenador!</h1>
+    <form action="" method="POST" class = "custom-form">{% csrf_token %}
+    
+        {{miEntrenador.as_div}}
+    
+        <input type = "submit" value = "Guardar" class = "custom-btn save-btn">
+    
+    </form>
+{% endblock %}

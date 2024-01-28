@@ -11,24 +11,59 @@
         <link rel="icon" type="image/x-icon" href="{% static 'WebBasket/assets/favicon.ico' %}" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
+        
+        
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap" rel="stylesheet">
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="{% static 'WebBasket/css/styles.css' %}" rel="stylesheet" />
+        <!-- Custom CSS -->
+        <link href="{% static 'WebBasket/css/custom-styles.css' %}" rel="stylesheet" />
     </head>
     <body>
         <!-- Navigation-->
-        <nav class="navbar navbar-light bg-light static-top">
-            <div class="container">
-                <a class="navbar-brand" href="{% url 'Inicio' %}">Inicio</a>
-                <a class="navbar-brand" href="{% url 'Jugadores' %}">Jugadores</a>
-                <a class="navbar-brand" href="{% url 'Entrenadores' %}">Entrenadores</a>
-                <a class="navbar-brand" href="{% url 'Equipos' %}">Equipos</a>
-                <a class="btn btn-primary" href="#signup">Sign Up</a>
+        <nav class="navbar navbar-light bg-light static-top fixed-header">
+            <div class="container custom-header-container">
+                <h1 class="title">WIKIBASKET</h1>
+                <div class="navbar-links">
+                    <a class="navbar-brand" href="{% url 'Inicio' %}">Inicio</a>
+                    <a class="navbar-brand" href="{% url 'Jugadores' %}">Jugadores</a>
+                    <a class="navbar-brand" href="{% url 'Entrenadores' %}">Entrenadores</a>
+                    <a class="navbar-brand" href="{% url 'Equipos' %}">Equipos</a>
+                    <a class="navbar-brand" href="{% url 'Buscarjugador' %}">Buscar Jugador</a>
+                </div>
+                <div class="account-container">
+                {% if request.user.is_authenticated  %}
+                    <a class = "custom-btn acc-btn-width" href="{% url 'Editar' %}"> Editar Usuario </a>
+                    <a class = "custom-btn acc-btn-width" href="{% url 'Logout' %}"> Cerrar Sesion </a>
+                    <p> <b>Hola {{user.username}}!!</b> </p>
+
+                    {% with user.avatar_set.first as miavatar %}
+
+                    {% if miavatar %}
+                    
+                    <img src="{{miavatar.imagen.url}}" alt="No encontro la imagen" style="max-width: 75px;">
+                    
+                    
+                    {% endif %}
+
+                    {% endwith %}
+                    
+                {% else %}
+                    
+                    <a class = "custom-btn acc-btn-width" href="{% url 'SignUp' %}">Registrarse</a>
+                    <a class = "custom-btn acc-btn-width" href="{% url 'Login' %}">Iniciar Sesion</a>
+                   
+                {% endif %}
+                </div>
+                
             </div>
         </nav>
         <!-- Masthead-->
-        <header class="masthead">
+        <header class="masthead newBg">
             <div class="container position-relative">
                 <div class="row justify-content-center">
                     <div class="col-xl-6">
@@ -74,8 +109,13 @@
             </div>
         </header>
         <!-- Icons Grid-->
-        <!-- Image Showcases-->
+        {% block descripcion %}
         
+        {% endblock %}
+        <!-- Image Showcases-->
+        {% block data %}
+       
+        {% endblock %}
         <!-- Testimonials-->
         <!-- Call to Action-->
         <!-- Footer-->
@@ -84,26 +124,18 @@
                 <div class="row">
                     <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
                         <ul class="list-inline mb-2">
-                            <li class="list-inline-item"><a href="#!">About</a></li>
-                            <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Contact</a></li>
-                            <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Terms of Use</a></li>
-                            <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Privacy Policy</a></li>
+                            <li class="list-inline-item"><a href="{% url 'Sobremi' %}" style="font-size: 25px;" >Acerca de mi</a></li>
+                            
                         </ul>
-                        <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2023. All Rights Reserved.</p>
+                        <p class="text-muted small mb-4 mb-lg-0">&copy; Web desarrollada por Juan Manuel Sosa. Todos los derechos reservados. 2024</p>
                     </div>
                     <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
                         <ul class="list-inline mb-0">
                             <li class="list-inline-item me-4">
-                                <a href="#!"><i class="bi-facebook fs-3"></i></a>
-                            </li>
-                            <li class="list-inline-item me-4">
-                                <a href="#!"><i class="bi-twitter fs-3"></i></a>
+                                <a href="https://www.linkedin.com/in/juan-manuel-sosa-3a7089280/" target="_blank"><i class="bi-linkedin fs-3"></i></a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="#!"><i class="bi-instagram fs-3"></i></a>
+                                <a href="https://www.instagram.com/chinoo.sosa/" target="_blank"><i class="bi-instagram fs-3"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -112,12 +144,16 @@
         </footer>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- JS Propio -->
+        <script src="{% static 'WebBasket/js/custom.js' %}"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        <script src="{% static 'WebBasket/js/scripts.js' %}"></script>
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <!-- * *                               SB Forms JS                               * *-->
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+        <!-- Font Awesome icons -->
+        <script src="https://kit.fontawesome.com/b36a603077.js" crossorigin="anonymous"></script>
     </body>
 </html>

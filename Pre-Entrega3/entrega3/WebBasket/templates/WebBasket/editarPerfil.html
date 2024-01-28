@@ -1,0 +1,21 @@
+{% extends "WebBasket/principales/padre.html" %}
+
+
+{% load static %}
+
+
+{% block titulo %}
+
+<h1> Aqui se edita al Usuario</h1>
+
+    <form action="" method="POST" class = "custom-form">{% csrf_token %}
+        
+        {{formulario.as_div}}
+
+        <button type = "submit" class = "custom-btn save-btn"> Editar  </button>
+        <a href="{% url 'Avatar' %}" class = "custom-btn save-btn"> Cambiar Avatar   </a>
+        
+        </button>
+    </form>
+
+{% endblock %}

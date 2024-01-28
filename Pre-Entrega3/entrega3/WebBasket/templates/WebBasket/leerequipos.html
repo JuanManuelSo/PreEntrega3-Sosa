@@ -1,0 +1,39 @@
+{% extends "WebBasket/principales/padre.html" %}
+
+
+{% load static %}
+
+
+{% block titulo %}
+Aqui puedes ver todos los Equipos 
+{% endblock %}
+
+{% block descripcion %}
+<div class="players-container">
+{% for x in team %}
+<div class="player-card height-mod">
+    <div class="player-img-container">
+        <img src={{x.imagen.url}} alt="{{x.nombre}}" class = "player-img">
+    </div>
+    <div class = "data-container">
+        <h3 class = "player-name"> {{x.nombre}} </h3>
+        <p class = "player-data team">{{x.añoFundado}} </p>
+        <p class = "player-data pos"> {{x.localidad}} </p>
+
+        <div class="player-btn-container">
+            <a href="{% url 'EditarEquipo' x.nombre %}" class="custom-btn player-btn edit">
+                <i class="fa-solid fa-pen-to-square"></i>
+            </a>
+            <a href="{% url 'EliminarEquipo' x.nombre %}" class="custom-btn player-btn close">
+                <i class="fa-solid fa-trash"></i>
+            </a>
+        </div>
+    </div>
+</div>
+{% endfor %}
+</div>
+<br>
+<div class="create-btn-container">
+    <a href="{% url 'Equipos' %}"  class="custom-btn"> Crear Nuevo Equipo </a>
+</div>
+{% endblock %}

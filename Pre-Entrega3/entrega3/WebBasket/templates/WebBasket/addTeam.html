@@ -1,5 +1,4 @@
-
-{% extends "WebBasket/padre.html" %}
+{% extends "WebBasket/principales/padre.html" %}
 
 
 {% load static %}
@@ -7,14 +6,20 @@
 
 {% block titulo %}
 
-<h1> Aca creamos un nuevo Equipo</h1>
+<h1> Agrega un nuevo Equipo!</h1>
 
-    <form action="/nuevoEquipo/" method="POST">{% csrf_token %}
+    <form action="" method="POST" class = "custom-form" enctype="multipart/form-data">{% csrf_token %}
         
-        {{miEquipo.as_p}}
+        {{miEquipo.as_div}}
 
-        <input type = "submit" value = "Guardar">
+        <input type = "submit" value = "Guardar" class = "custom-btn save-btn">
 
     </form>
 
+{% endblock %}
+
+{% block descripcion %}
+<div class = "btn-container">
+    <a href="{% url 'LeerEquipo' %}" class = "custom-btn"> Ver todos los Equipos   </a>
+</div>
 {% endblock %}
