@@ -1,4 +1,4 @@
-# PreEntrega3-Sosa
+# PROYECTO FINAL-SOSA
 
 # Mi pagina web tiene los siguientes modelos:
 1- Menu(Buscar jugador por equipo)
