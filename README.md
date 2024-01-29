@@ -44,3 +44,7 @@ editar/",editarUsuarios, name = "Editar"),
     path("leerEquipos/",leerEquipos, name = "LeerEquipo"),
     path("eliminarEquipos/<eqpNom>/",eliminarEquipos, name = "EliminarEquipo"),
     path("editarEquipos/<eqpNom>/",editarEquipos, name = "EditarEquipo"),
+
+
+#VIDEO Y CASOS DE PRUEBA
+https://drive.google.com/drive/u/0/folders/17aj_wkiLsF9MjbbPNEAXHhW4ykw_a4F5
